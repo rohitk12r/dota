@@ -19,7 +19,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
-import gg.bayes.challenge.dao.HeroRepository;
+import gg.bayes.challenge.dao.HeroDamageRepository;
+import gg.bayes.challenge.dao.HeroItemsRepository;
+import gg.bayes.challenge.dao.HeroKillsRepository;
+import gg.bayes.challenge.dao.HeroSpellsRepository;
 import gg.bayes.challenge.rest.controller.MatchController;
 import gg.bayes.challenge.rest.model.HeroKills;
 import gg.bayes.challenge.service.MatchService;
@@ -35,7 +38,18 @@ public class MatchControllerIntegrationTest {
 	private MatchService service;
 
 	@MockBean
-	private HeroRepository heroRepository;
+	private HeroKillsRepository heroRepository;
+	
+	@MockBean
+	private HeroSpellsRepository heroSpellsRepository;
+	
+	@MockBean
+	private HeroItemsRepository heroItemsRepository;
+	
+	@MockBean
+	private HeroDamageRepository heroDamageRepository;
+	
+	
 
 	private static final String PAYLOAD = "[00:10:41.998] npc_dota_hero_abyssal_underlord casts ability abyssal_underlord_firestorm (lvl 1) on dota_unknown";
 	private Long matchID = 1L;

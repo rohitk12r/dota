@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import gg.bayes.challenge.dao.HeroDamageRepository;
 import gg.bayes.challenge.dao.HeroItemsRepository;
-import gg.bayes.challenge.dao.HeroRepository;
+import gg.bayes.challenge.dao.HeroKillsRepository;
 import gg.bayes.challenge.dao.HeroSpellsRepository;
 import gg.bayes.challenge.pojo.HeroDamageEntity;
 import gg.bayes.challenge.pojo.HeroItemsEntity;
@@ -48,7 +48,7 @@ public class MatchServiceImplIntegrationTest {
 	private MatchService matchService;
 
 	@MockBean
-	private HeroRepository heroRepository;
+	private HeroKillsRepository heroRepository;
 
 	@MockBean
 	private HeroItemsRepository heroItemsRepository;

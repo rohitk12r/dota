@@ -11,7 +11,7 @@ import gg.bayes.challenge.pojo.HeroKillsEntity;
  * 
  * @author RohitSharma
  */
-public interface HeroRepository extends JpaRepository<HeroKillsEntity, Long> {
+public interface HeroKillsRepository extends JpaRepository<HeroKillsEntity, Long> {
 
 	/**
 	 * It's used to fetch all hero which is matching with {@value matchId}

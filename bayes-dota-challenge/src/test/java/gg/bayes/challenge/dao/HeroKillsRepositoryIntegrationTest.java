@@ -1,6 +1,5 @@
 package gg.bayes.challenge.dao;
 
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
@@ -13,18 +12,18 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import gg.bayes.challenge.dao.HeroRepository;
+import gg.bayes.challenge.dao.HeroKillsRepository;
 import gg.bayes.challenge.pojo.HeroKillsEntity;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class HeroRepositoryIntegrationTest {
+public class HeroKillsRepositoryIntegrationTest {
 
 	@Autowired
 	private TestEntityManager entityManager;
 
 	@Autowired
-	HeroRepository heroRepository;
+	HeroKillsRepository heroRepository;
 
 	@Test
 	public void whenFindByMatchIdThenReturnHeroEntity() {
@@ -37,13 +36,12 @@ public class HeroRepositoryIntegrationTest {
 		entityManager.persist(heroEntity);
 		entityManager.flush();
 
-		List<HeroKillsEntity> heroEntityCollection = heroRepository.findByMatchId(1L);
-
-		for (HeroKillsEntity hero : heroEntityCollection) {
+		List<HeroKillsEntity> heroKillsEntityCollection = heroRepository.findByMatchId(1L);
+		heroKillsEntityCollection.forEach(hero -> {
 			assertThat(hero.getHeroName()).isEqualTo(heroEntity.getHeroName());
 			assertThat(hero.getKills()).isEqualTo(heroEntity.getKills());
 			assertThat(hero.getTotal_damages()).isEqualTo(heroEntity.getTotal_damages());
-		}
+		});
 	}
 
 	@After

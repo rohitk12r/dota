@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import gg.bayes.challenge.dao.HeroDamageRepository;
 import gg.bayes.challenge.dao.HeroItemsRepository;
-import gg.bayes.challenge.dao.HeroRepository;
+import gg.bayes.challenge.dao.HeroKillsRepository;
 import gg.bayes.challenge.dao.HeroSpellsRepository;
 import gg.bayes.challenge.pojo.HeroDamageEntity;
 import gg.bayes.challenge.pojo.HeroItemsEntity;
@@ -55,7 +55,7 @@ public class MatchServiceImpl implements MatchService {
 	 * This is used to connect database to fetch HeroEntity
 	 */
 	@Autowired
-	private HeroRepository heroRepository;
+	private HeroKillsRepository heroRepository;
 
 	@Autowired
 	private HeroSpellsRepository heroSpellsRepository;
